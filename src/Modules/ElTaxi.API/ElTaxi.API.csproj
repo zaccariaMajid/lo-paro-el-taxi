@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ElTaxi.Application\ElTaxi.Application.csproj" />
+    <ProjectReference Include="..\ElTaxi.Infrastructure\ElTaxi.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\ElTaxi.BuildingBlocks.Application\ElTaxi.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\ElTaxi.BuildingBlocks.Domain\ElTaxi.BuildingBlocks.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
+  </ItemGroup>
+
+</Project>

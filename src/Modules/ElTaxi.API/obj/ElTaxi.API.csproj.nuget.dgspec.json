@@ -1,0 +1,404 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/ElTaxi.API.csproj": {}
+  },
+  "projects": {
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj",
+        "projectName": "ElTaxi.BuildingBlocks.Application",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj",
+        "projectName": "ElTaxi.BuildingBlocks.Domain",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/ElTaxi.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/ElTaxi.API.csproj",
+        "projectName": "ElTaxi.API",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/ElTaxi.API.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/ElTaxi.Infrastructure.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/ElTaxi.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj",
+        "projectName": "ElTaxi.Application",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj",
+        "projectName": "ElTaxi.Domain",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/ElTaxi.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/ElTaxi.Infrastructure.csproj",
+        "projectName": "ElTaxi.Infrastructure",
+        "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/ElTaxi.Infrastructure.csproj",
+        "packagesPath": "/Users/zack/.nuget/packages/",
+        "outputPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/zack/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Application/ElTaxi.BuildingBlocks.Application.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/ElTaxi.Application.csproj"
+              },
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Domain/ElTaxi.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

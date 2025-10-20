@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ElTaxi.Application\ElTaxi.Application.csproj" />
+    <ProjectReference Include="..\ElTaxi.Domain\ElTaxi.Domain.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\ElTaxi.BuildingBlocks.Application\ElTaxi.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\..\BuildingBlocks\ElTaxi.BuildingBlocks.Domain\ElTaxi.BuildingBlocks.Domain.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
