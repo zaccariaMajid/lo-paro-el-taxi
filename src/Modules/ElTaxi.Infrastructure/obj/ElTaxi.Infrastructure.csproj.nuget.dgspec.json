@@ -209,7 +209,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj": {
+                "projectPath": "/Users/zack/GitRepo/lo-paro-el-taxi/src/BuildingBlocks/ElTaxi.BuildingBlocks.Domain/ElTaxi.BuildingBlocks.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
