@@ -2,7 +2,7 @@ using ElTaxi.BuildingBlocks.Domain;
 
 namespace ElTaxi.Domain.Rider;
 
-public class Rider : Entity
+public class Rider : Entity, IAggregateRoot
 {
     public string Name { get; set; }
     public string Email { get; set; }
