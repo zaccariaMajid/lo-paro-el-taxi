@@ -16,3 +16,5 @@
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/obj/Debug/net9.0/refint/ElTaxi.Application.dll
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/obj/Debug/net9.0/ElTaxi.Application.pdb
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/obj/Debug/net9.0/ref/ElTaxi.Application.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/bin/Debug/net9.0/ElTaxi.BuildingBlocks.Domain.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.Application/bin/Debug/net9.0/ElTaxi.BuildingBlocks.Domain.pdb

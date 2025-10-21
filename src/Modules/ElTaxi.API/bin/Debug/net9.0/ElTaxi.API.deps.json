@@ -66,6 +66,9 @@
         }
       },
       "ElTaxi.Domain/1.0.0": {
+        "dependencies": {
+          "ElTaxi.BuildingBlocks.Domain": "1.0.0"
+        },
         "runtime": {
           "ElTaxi.Domain.dll": {
             "assemblyVersion": "1.0.0.0",

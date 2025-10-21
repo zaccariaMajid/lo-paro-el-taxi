@@ -23,7 +23,18 @@
           }
         }
       },
+      "ElTaxi.BuildingBlocks.Domain/1.0.0": {
+        "runtime": {
+          "ElTaxi.BuildingBlocks.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ElTaxi.Domain/1.0.0": {
+        "dependencies": {
+          "ElTaxi.BuildingBlocks.Domain": "1.0.0"
+        },
         "runtime": {
           "ElTaxi.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -40,6 +51,11 @@
       "sha512": ""
     },
     "ElTaxi.BuildingBlocks.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ElTaxi.BuildingBlocks.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
