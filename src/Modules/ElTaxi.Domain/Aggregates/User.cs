@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Enums;
+using ElTaxi.Domain.ValueObjects;
 
 namespace ElTaxi.Domain.Aggregates;
 
 public sealed class User : Entity, IAggregateRoot
 {
-    public string Email { get; set; } = null!;
-    public string Username { get; set; } = null!;
+    public Email Email { get; set; } = null!;
     public string PasswordHash { get; set; } = null!;
     public UserRole Role { get; set; }
     public DateTime? lastLoginAt { get; set; }
@@ -18,18 +18,17 @@ public sealed class User : Entity, IAggregateRoot
 
     private User() { }
 
-    private User(string email, string username, string passwordHash, UserRole role, UserStatus status)
+    private User(Email email, string passwordHash, UserRole role, UserStatus status)
     {
         Email = email;
-        Username = username;
         PasswordHash = passwordHash;
         Role = role;
         Status = status;
     }
 
-    public static User Create(string email, string username, string passwordHash, UserRole role, UserStatus status)
+    public static User Create(Email email, string passwordHash, UserRole role, UserStatus status)
     {
-        return new User(email, username, passwordHash, role, status);
+        return new User(email, passwordHash, role, status);
     }
 
     public void ChangeStatus(UserStatus status)
