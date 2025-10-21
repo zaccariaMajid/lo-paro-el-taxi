@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElTaxi.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d70a6b149e053eed1c0607c2e0f322f26edd1c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22f6a3e75835fb7a4e1210e4a7b40d220f34ab58")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElTaxi.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElTaxi.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
