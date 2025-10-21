@@ -12,7 +12,7 @@ public sealed class Ping : Entity, IAggregateRoot
     public string Latitude { get; set; } = null!;
     public string Longitude { get; set; } = null!;
     public decimal Speed { get; set; }
-    // direzione in gradi
+    // Direction in degrees
     public int Heading { get; set; }
     public int Accuracy { get; set; }
     public DateTime SentAt{ get; set; }

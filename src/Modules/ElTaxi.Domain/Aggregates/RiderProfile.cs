@@ -13,29 +13,29 @@ public sealed class RiderProfile : Entity, IAggregateRoot
     public Guid UserId { get; set; }
     public string FullName { get; set; } = null!;
     public PhoneNumber PhoneNumber { get; set; } = null!;
-    public PaymentMethods PreferredPaymentMethod { get; set; }
+    public PaymentTypes PreferredPaymentType { get; set; }
     public decimal AverageRating { get; set; }
     public int TotalRides { get; set; }
 
     private RiderProfile() { }
 
-    private RiderProfile(Guid userId, string fullName, PhoneNumber phoneNumber, PaymentMethods preferredPaymentMethod)
+    private RiderProfile(Guid userId, string fullName, PhoneNumber phoneNumber, PaymentTypes preferredPaymentType)
     {
         UserId = userId;
         FullName = fullName;
         PhoneNumber = phoneNumber;
-        PreferredPaymentMethod = preferredPaymentMethod;
+        PreferredPaymentType = preferredPaymentType;
         AverageRating = 0;
         TotalRides = 0;
     }
 
-    public static RiderProfile Create(Guid userId, string fullName, PhoneNumber phoneNumber, PaymentMethods preferredPaymentMethod)
+    public static RiderProfile Create(Guid userId, string fullName, PhoneNumber phoneNumber, PaymentTypes preferredPaymentType)
     {
-        return new RiderProfile(userId, fullName, phoneNumber, preferredPaymentMethod);
+        return new RiderProfile(userId, fullName, phoneNumber, preferredPaymentType);
     }
-    public void UpdatePreferredPaymentMethod(PaymentMethods newMethod)
+    public void UpdatePreferredPaymentType(PaymentTypes newType)
     {
-        PreferredPaymentMethod = newMethod;
+        PreferredPaymentType = newType;
     }
     public void UpdateRating(int newRating)
     {

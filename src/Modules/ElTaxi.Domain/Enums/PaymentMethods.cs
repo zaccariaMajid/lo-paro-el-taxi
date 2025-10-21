@@ -2,6 +2,10 @@ namespace ElTaxi.Domain.Enums;
 
 public enum PaymentMethods
 {
-    Cash = 1,
-    CreditCard
+    CreditCard = 1,
+    PayPal,
+    ApplePay,
+    GooglePay,
+    Cash,
+    Stripe
 }
