@@ -10,5 +10,6 @@ public interface IRepository<TAggregate> where TAggregate : IAggregateRoot
     Task<TAggregate?> GetByIdAsync(Guid id, CancellationToken ct = default);
     Task AddAsync(TAggregate aggregate, CancellationToken ct = default);
     Task UpdateAsync(TAggregate aggregate, CancellationToken ct = default);
-    Task DeleteAsync(TAggregate aggregate, CancellationToken ct = default);
+    void DeleteAsync(TAggregate aggregate, CancellationToken ct = default);
+    Task SaveChangesAsync(CancellationToken ct = default);
 }
