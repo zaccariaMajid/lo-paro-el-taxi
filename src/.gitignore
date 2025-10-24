@@ -1,0 +1,59 @@
+## Build Folders
+bin/
+obj/
+out/
+**/bin/
+**/obj/
+
+## User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.unsuccessfulbuild
+*.dbmdl
+
+## Visual Studio / VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.vs/
+*.suo
+*.ntvs*
+*.njsproj.user
+*.psess
+*.vsp
+*.vspscc
+
+## Rider / ReSharper
+.ReSharper*/
+*.[Rr]e[Ss]harper
+.idea/
+*.DotSettings.user
+
+## Logs
+*.log
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+*.nuget.props
+*.nuget.targets
+
+## DotNet tools and caches
+/.dotnet/
+.dotnet_tools/
+/tools/
+**/project.lock.json
+**/project.fragment.lock.json
+*.deps.json
+*.runtimeconfig.dev.json
+
+## Entity Framework Migrations snapshots
+*Migrations/*.Designer.cs
+*Migrations/*Snap
