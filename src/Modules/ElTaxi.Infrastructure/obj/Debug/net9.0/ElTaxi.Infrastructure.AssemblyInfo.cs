@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElTaxi.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf9550500ce78420b71b33f2158b7a4260cc983a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71dc199e905c56c164ac94f689f1ef61df174d11")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElTaxi.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElTaxi.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

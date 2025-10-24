@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ElTaxi.Infrastructure.Repositories;
 
-public class UserRepository : BaseRepository<User>, IUserRepository
+public sealed class UserRepository : BaseRepository<User>, IUserRepository
 {
     public UserRepository(ElTaxiDbContext context) : base(context)
     {
