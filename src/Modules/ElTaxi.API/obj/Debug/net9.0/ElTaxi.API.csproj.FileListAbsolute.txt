@@ -41,3 +41,14 @@
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/obj/Debug/net9.0/ref/ElTaxi.API.dll
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/ElTaxi.Infrastructure.dll
 /Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/ElTaxi.Infrastructure.pdb
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/Users/zack/GitRepo/lo-paro-el-taxi/src/Modules/ElTaxi.API/bin/Debug/net9.0/Npgsql.dll

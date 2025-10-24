@@ -225,6 +225,22 @@
           }
         }
       },
+      "Npgsql/9.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ElTaxi.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -658,6 +674,23 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "Npgsql/9.0.4": {
+      "sha512": "68BASXH0FAEuL/J4J0eRfYC8/3vzqQTmoW8zDzNf0JgaVxc7LZeEkS6jaG0ib3voFLxY5ZiCwJG+uQM+mzuu0Q==",
+      "type": "package",
+      "path": "npgsql/9.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "npgsql.9.0.4.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "ElTaxi.Application/1.0.0": {
       "type": "project",
       "path": "../ElTaxi.Application/ElTaxi.Application.csproj",
@@ -690,7 +723,8 @@
       "ElTaxi.BuildingBlocks.Application >= 1.0.0",
       "ElTaxi.BuildingBlocks.Domain >= 1.0.0",
       "ElTaxi.Infrastructure >= 1.0.0",
-      "Microsoft.AspNetCore.OpenApi >= 9.0.6"
+      "Microsoft.AspNetCore.OpenApi >= 9.0.6",
+      "Npgsql >= 9.0.4"
     ]
   },
   "packageFolders": {
@@ -752,6 +786,10 @@
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[9.0.6, )"
+          },
+          "Npgsql": {
+            "target": "Package",
+            "version": "[9.0.4, )"
           }
         },
         "imports": [
