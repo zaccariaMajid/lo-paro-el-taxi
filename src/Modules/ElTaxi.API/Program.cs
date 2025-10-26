@@ -1,9 +1,12 @@
 using System.Net.NetworkInformation;
 using System.Security.AccessControl;
+using ElTaxi.Application.Interfaces;
+using ElTaxi.Application.Services;
 using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Interfaces;
 using ElTaxi.Infrastructure;
 using ElTaxi.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -32,6 +35,9 @@ builder.Services.AddScoped(typeof(IRiderProfileRepository), typeof(RiderProfileR
 builder.Services.AddScoped(typeof(IRideRepository), typeof(RideRepository));
 builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 builder.Services.AddScoped(typeof(IVehicleRepository), typeof(VehicleRepository));
+
+// Add services
+builder.Services.AddSingleton<IPasswordService, PasswordService>();
 
 var app = builder.Build();
 

@@ -6,10 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\ElTaxi.Domain\ElTaxi.Domain.csproj" />
-    <ProjectReference Include="..\..\Modules\ElTaxi.Application\ElTaxi.Application.csproj" />
+    <ProjectReference Include="..\ElTaxi.Application\ElTaxi.Application.csproj" />
+    <ProjectReference Include="..\ElTaxi.Domain\ElTaxi.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
