@@ -20,15 +20,15 @@ public sealed class Ride : Entity, IAggregateRoot
     public DateTime RequestedAt { get; set; }
     public DateTime? StartedAt { get; set; }
     public DateTime? CompletedAt { get; set; }
-    public DateTime CanceledAt { get; set; }
+    public DateTime? CanceledAt { get; set; }
     public RideStatus Status { get; set; }
     public decimal DistanceInKm { get; set; }
     public decimal EstimatedDurationInMinutes { get; set; }
     public decimal EstimatedPrice { get; set; }
     public decimal FinalPice { get; set; }
-    public Guid PaymentId { get; set; }
-    public int DriverRating { get; set; }
-    public int RiderRating { get; set; }
+    public Guid? PaymentId { get; set; }
+    public int? DriverRating { get; set; }
+    public int? RiderRating { get; set; }
     private Ride() { }
     private Ride(Guid riderId, Guid driverId, Address pickUpAddress, string pickupLatitude, string pickupLongitude, Address dropOffAddress, string dropOffLatitude, string dropOffLongitude, decimal distanceInKm, decimal estimatedDurationInMinutes, decimal estimatedPrice)
     {
@@ -88,6 +88,11 @@ public sealed class Ride : Entity, IAggregateRoot
 
         Status = RideStatus.Canceled;
         CanceledAt = DateTime.UtcNow;
+    }
+
+    public void AssignPayment(Guid paymentId)
+    {
+        PaymentId = paymentId;
     }
 
     public void RateDriver(int rating)

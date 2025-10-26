@@ -4,6 +4,7 @@ using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Interfaces;
 using ElTaxi.Infrastructure;
 using ElTaxi.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 var connString = builder.Configuration.GetConnectionString("Postgres")
                  ?? throw new InvalidOperationException("Missing ConnectionStrings:Postgres");
-builder.Services.AddSingleton(new NpgsqlConnection(connString));
+                 
+builder.Services.AddDbContext<ElTaxiDbContext>(options =>
+    options.UseNpgsql(connString));
 
 //Register generic repostiory
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));

@@ -19,7 +19,7 @@ public class BaseRepository<TAggregate> : IBaseRepository<TAggregate> where TAgg
         _context = context;
         _dbSet = _context.Set<TAggregate>();
     }
-
+    
     public virtual async Task AddAsync(TAggregate aggregate, CancellationToken ct = default) => await _dbSet.AddAsync(aggregate, ct);
     
     public virtual void DeleteAsync(TAggregate aggregate, CancellationToken ct = default) => _dbSet.Remove(aggregate);
@@ -32,14 +32,8 @@ public class BaseRepository<TAggregate> : IBaseRepository<TAggregate> where TAgg
     {
         return await _dbSet.Where(predicate).ToListAsync(cancellationToken);
     }
-
-    public virtual async Task SaveChangesAsync(CancellationToken ct = default)
+    public virtual void UpdateAsync(TAggregate aggregate, CancellationToken ct = default)
     {
-        await _context.SaveChangesAsync(ct);
-    }
-
-    public  virtual Task UpdateAsync(TAggregate aggregate, CancellationToken ct = default)
-    {
-        throw new NotImplementedException();
+        _dbSet.Update(aggregate);
     }
 }

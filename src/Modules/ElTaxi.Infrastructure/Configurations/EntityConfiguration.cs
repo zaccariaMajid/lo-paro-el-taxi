@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using ElTaxi.BuildingBlocks.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElTaxi.Infrastructure.Configurations;
 
 public class EntityConfiguration : IEntityTypeConfiguration<Entity>
 {
-    public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Entity> builder)
+    public void Configure(EntityTypeBuilder<Entity> builder)
     {
         builder.HasKey(e => e.Id);
 

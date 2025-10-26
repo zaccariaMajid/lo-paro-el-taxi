@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Aggregates;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,8 +28,20 @@ public sealed class ElTaxiDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Entity>().UseTpcMappingStrategy();
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ElTaxiDbContext).Assembly);
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes()
+        .Where(t => typeof(Entity).IsAssignableFrom(t.ClrType)
+                    && t.ClrType != typeof(Entity))) // evita la base
+        {
+            var builder = modelBuilder.Entity(entityType.ClrType);
+
+            builder.Property(nameof(Entity.CreatedAt)).IsRequired();
+            builder.Property(nameof(Entity.UpdatedAt));
+            builder.Property(nameof(Entity.RowVersion)).IsRowVersion();
+        }
+        base.OnModelCreating(modelBuilder);
     }
 }
