@@ -12,5 +12,5 @@ public interface IBaseRepository<TAggregate> where TAggregate : IAggregateRoot
     Task AddAsync(TAggregate aggregate, CancellationToken ct = default);
     void UpdateAsync(TAggregate aggregate, CancellationToken ct = default);
     void DeleteAsync(TAggregate aggregate, CancellationToken ct = default);
-    Task<IEnumerable<TAggregate>> FindAsync( Expression<Func<TAggregate, bool>> predicate, CancellationToken cancellationToken = default);
+    Task<IEnumerable<TAggregate>> FindAsync(Expression<Func<TAggregate, bool>> predicate, CancellationToken cancellationToken = default);
 }

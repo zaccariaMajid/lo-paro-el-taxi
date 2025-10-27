@@ -20,7 +20,7 @@ public class EntityConfiguration : IEntityTypeConfiguration<Entity>
 
         builder.Property(e => e.CreatedAt)
             .IsRequired();
-        
+
         builder.Property(e => e.CreatedBy)
             .IsRequired();
 

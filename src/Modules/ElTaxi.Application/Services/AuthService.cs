@@ -33,7 +33,7 @@ public sealed class AuthService : IAuthService
         var validationResult = await this.validateRegisterRequest(email, password, role);
         if (!validationResult.IsSuccess)
             return Result<AuthResponse>.Fail(validationResult.Error!);
-        
+
         var emailVo = Email.Create(email);
 
         var hashedPassword = _passwordService.HashPassword(password);

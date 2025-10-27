@@ -13,7 +13,7 @@ public class PingConfiguration : IEntityTypeConfiguration<Ping>
     public void Configure(EntityTypeBuilder<Ping> builder)
     {
         builder.ToTable("Pings");
-        
+
         builder.Property(p => p.DriverId)
             .IsRequired();
 

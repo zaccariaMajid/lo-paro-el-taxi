@@ -16,7 +16,7 @@ public abstract class Entity
     public byte[] RowVersion { get; protected set; } = Array.Empty<byte>();
 
     public Entity() { }
-    
+
     public void UpdateAudit(DateTime? updatedAt = null, string? updatedBy = null)
     {
         UpdatedAt = updatedAt ?? DateTime.UtcNow;

@@ -5,4 +5,4 @@ using System.Threading.Tasks;
 
 namespace ElTaxi.BuildingBlocks.Domain;
 
-public interface IAggregateRoot {}
+public interface IAggregateRoot { }

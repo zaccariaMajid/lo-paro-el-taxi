@@ -10,5 +10,5 @@ namespace ElTaxi.Domain.Interfaces;
 
 public interface IPingRepository : IBaseRepository<Ping>
 {
-    
+
 }

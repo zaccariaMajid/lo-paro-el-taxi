@@ -41,5 +41,5 @@ public sealed class RiderProfile : Entity, IAggregateRoot
     {
         AverageRating = ((AverageRating * TotalRides) + newRating) / (TotalRides + 1);
         TotalRides += 1;
-    }   
+    }
 }

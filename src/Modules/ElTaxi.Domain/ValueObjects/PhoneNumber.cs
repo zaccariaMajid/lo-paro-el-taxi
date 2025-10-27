@@ -23,11 +23,11 @@ public class PhoneNumber : ValueObject
             throw new ArgumentException("CountryCode must contain only digits.");
         if (!number.All(char.IsDigit))
             throw new ArgumentException("PhoneNumber must contain only digits.");
-        
+
         CountryCode = countryCode;
         Number = number;
     }
-    public static PhoneNumber Create(string countryCode, string number) 
+    public static PhoneNumber Create(string countryCode, string number)
         => new PhoneNumber(countryCode, number);
     protected override IEnumerable<object> GetEqualityComponents()
     {

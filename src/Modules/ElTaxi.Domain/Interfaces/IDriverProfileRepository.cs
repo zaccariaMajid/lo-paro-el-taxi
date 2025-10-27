@@ -9,5 +9,5 @@ namespace ElTaxi.Domain.Interfaces;
 
 public interface IDriverProfileRepository : IBaseRepository<DriverProfile>
 {
-    
+
 }

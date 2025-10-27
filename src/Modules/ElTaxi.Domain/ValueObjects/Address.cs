@@ -33,7 +33,7 @@ public class Address : ValueObject
         ZipCode = zipCode;
         Country = country;
     }
-    
+
     public static Address Create(string street, string city, string state, string zipCode, string country)
     {
         return new Address(street, city, state, zipCode, country);

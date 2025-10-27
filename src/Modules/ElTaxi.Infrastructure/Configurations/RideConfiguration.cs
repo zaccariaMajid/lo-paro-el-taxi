@@ -13,7 +13,7 @@ public class RideConfiguration : IEntityTypeConfiguration<Ride>
     public void Configure(EntityTypeBuilder<Ride> builder)
     {
         builder.ToTable("Rides");
-        
+
         builder.Property(r => r.RiderId)
             .IsRequired();
 

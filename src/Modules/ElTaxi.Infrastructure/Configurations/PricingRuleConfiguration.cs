@@ -13,7 +13,7 @@ public class PricingRuleConfiguration : IEntityTypeConfiguration<PricingRule>
     public void Configure(EntityTypeBuilder<PricingRule> builder)
     {
         builder.ToTable("PricingRules");
-        
+
         builder.Property(pr => pr.VehicleType)
             .IsRequired();
 

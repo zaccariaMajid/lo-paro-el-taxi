@@ -15,7 +15,7 @@ public sealed class Ping : Entity, IAggregateRoot
     // Direction in degrees
     public int Heading { get; set; }
     public int Accuracy { get; set; }
-    public DateTime SentAt{ get; set; }
+    public DateTime SentAt { get; set; }
     private Ping() { }
     private Ping(Guid driverId, string latitude, string longitude, decimal speed, int heading, int accuracy, DateTime sentAt)
     {

@@ -17,7 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 var connString = builder.Configuration.GetConnectionString("Postgres")
                  ?? throw new InvalidOperationException("Missing ConnectionStrings:Postgres");
-                 
+
 builder.Services.AddDbContext<ElTaxiDbContext>(options =>
     options.UseNpgsql(connString));
 

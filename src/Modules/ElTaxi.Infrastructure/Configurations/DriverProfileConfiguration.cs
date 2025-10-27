@@ -49,7 +49,7 @@ public class DriverProfileConfiguration : IEntityTypeConfiguration<DriverProfile
         builder.Property(dp => dp.CurrentLongitude)
             .IsRequired()
             .HasMaxLength(20);
-            
+
         builder.Property(dp => dp.LastPingAt)
             .IsRequired();
     }

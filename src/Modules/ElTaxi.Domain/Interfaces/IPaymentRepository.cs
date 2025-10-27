@@ -9,5 +9,5 @@ namespace ElTaxi.Domain.Interfaces;
 
 public interface IPaymentRepository : IBaseRepository<Payment>
 {
-    
+
 }

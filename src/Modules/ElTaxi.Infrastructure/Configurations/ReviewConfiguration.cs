@@ -13,7 +13,7 @@ public class ReviewConfiguration : IEntityTypeConfiguration<Review>
     public void Configure(EntityTypeBuilder<Review> builder)
     {
         builder.ToTable("Reviews");
-        
+
         builder.Property(r => r.RideId)
             .IsRequired();
 

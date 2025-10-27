@@ -9,5 +9,5 @@ namespace ElTaxi.Domain.Interfaces;
 
 public interface IRideRepository : IBaseRepository<Ride>
 {
-    
+
 }

@@ -19,9 +19,9 @@ public class BaseRepository<TAggregate> : IBaseRepository<TAggregate> where TAgg
         _context = context;
         _dbSet = _context.Set<TAggregate>();
     }
-    
+
     public virtual async Task AddAsync(TAggregate aggregate, CancellationToken ct = default) => await _dbSet.AddAsync(aggregate, ct);
-    
+
     public virtual void DeleteAsync(TAggregate aggregate, CancellationToken ct = default) => _dbSet.Remove(aggregate);
 
     public virtual async Task<TAggregate?> GetByIdAsync(Guid id, CancellationToken ct = default) => await _dbSet.FirstOrDefaultAsync(e => e.Id == id, ct);
