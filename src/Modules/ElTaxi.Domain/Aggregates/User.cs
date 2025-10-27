@@ -26,7 +26,7 @@ public sealed class User : Entity, IAggregateRoot
         Status = status;
     }
 
-    public static User Create(Email email, string passwordHash, UserRole role, UserStatus status)
+    public static User Create(Email email, string passwordHash, UserRole role, UserStatus status = UserStatus.New)
     {
         return new User(email, passwordHash, role, status);
     }

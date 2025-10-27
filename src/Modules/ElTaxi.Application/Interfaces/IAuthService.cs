@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ElTaxi.Application.Services;
+using ElTaxi.BuildingBlocks.Application;
+using ElTaxi.Domain.Enums;
 
 namespace ElTaxi.Application.Interfaces;
 
 public interface IAuthService
 {
-    Task<string> Register(string email, string password, string role);
-    Task<string> Login(string email, string password);
+    Task<Result<AuthResponse>> RegisterAsync(string email, string password, UserRole role);
+    Task<Result<AuthResponse>> LoginAsync(string email, string password);
 }

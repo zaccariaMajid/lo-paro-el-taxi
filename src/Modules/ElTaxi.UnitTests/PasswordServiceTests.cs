@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ElTaxi.Application.Interfaces;
+using ElTaxi.Application.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ElTaxi.UnitTests;
@@ -14,7 +15,7 @@ public class PasswordServiceTests
     [TestInitialize]
     public void Setup()
     {
-        _passwordService = new ElTaxi.Application.Services.PasswordService();
+        _passwordService = new PasswordService();
     }
 
     [TestMethod]

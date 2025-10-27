@@ -14,6 +14,8 @@ public class Email : ValueObject
     {
         if (string.IsNullOrWhiteSpace(value))
             throw new ArgumentException("Email cannot be empty.", nameof(value));
+        if(!value.Contains("@"))
+            throw new ArgumentException("Invalid email format.", nameof(value));
         Value = value.Trim().ToLowerInvariant();
     }
     public static Email Create(string value) => new Email(value);
