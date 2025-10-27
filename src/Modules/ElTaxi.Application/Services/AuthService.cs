@@ -23,25 +23,17 @@ public sealed class AuthService : IAuthService
         _passwordService = passwordService;
         _unitOfWork = unitOfWork;
     }
-    public Task<Result<AuthResponse>> LoginAsync(string email, string password)
+    public Task<Result<AuthResponse>> LoginAsync(string email, string password, CancellationToken ct = default)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<Result<AuthResponse>> RegisterAsync(string email, string password, UserRole role)
+    public async Task<Result<AuthResponse>> RegisterAsync(string email, string password, UserRole role, CancellationToken ct = default)
     {
-        if (string.IsNullOrWhiteSpace(email))
-            return Result<AuthResponse>.Fail("Email must be provided.");
-
-        if (string.IsNullOrWhiteSpace(password))
-            return Result<AuthResponse>.Fail("Password must be provided.");
-
-        if (!Enum.IsDefined(typeof(UserRole), role))
-            return Result<AuthResponse>.Fail("Invalid role specified.");
+        var validationResult = await this.validateRegisterRequest(email, password, role);
+        if (!validationResult.IsSuccess)
+            return Result<AuthResponse>.Fail(validationResult.Error!);
         
-        if (await _userRepository.GetByEmailAsync(email) is not null)
-            return Result<AuthResponse>.Fail("Email is already registered.");
-
         var emailVo = Email.Create(email);
 
         var hashedPassword = _passwordService.HashPassword(password);
@@ -52,6 +44,23 @@ public sealed class AuthService : IAuthService
         await _unitOfWork.SaveChangesAsync();
 
         return Result<AuthResponse>.Success(new AuthResponse(user.Id, user.Email.Value));
+    }
+
+    private async Task<Result<bool>> validateRegisterRequest(string email, string password, UserRole role)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return Result<bool>.Fail("Email must be provided.");
+
+        if (string.IsNullOrWhiteSpace(password))
+            return Result<bool>.Fail("Password must be provided.");
+
+        if (!Enum.IsDefined(typeof(UserRole), role))
+            return Result<bool>.Fail("Invalid role specified.");
+
+        if (await _userRepository.GetByEmailAsync(email) is not null)
+            return Result<bool>.Fail("Email is already registered.");
+
+        return Result<bool>.Success(true);
     }
 }
 
