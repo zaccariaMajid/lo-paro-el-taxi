@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using ElTaxi.Application.Interfaces;
@@ -16,23 +17,48 @@ public sealed class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordService _passwordService;
+    private readonly ITokenService _tokenService;
     private readonly IUnitOfWork _unitOfWork;
-    public AuthService(IUserRepository userRepository, IPasswordService passwordService, IUnitOfWork unitOfWork)
+    public AuthService(IUserRepository userRepository, IPasswordService passwordService, ITokenService tokenService, IUnitOfWork unitOfWork)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
+        _tokenService = tokenService;
         _unitOfWork = unitOfWork;
     }
-    public Task<Result<AuthResponse>> LoginAsync(string email, string password, CancellationToken ct = default)
+    public async Task<Result<AuthLoginResponse>> LoginAsync(string email, string password, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(email))
+            return Result<AuthLoginResponse>.Fail("Email must be provided.");
+        if (string.IsNullOrWhiteSpace(password))
+            return Result<AuthLoginResponse>.Fail("Password must be provided.");
+        
+        var user = await _userRepository.GetByEmailAsync(email);
+        if (user is null)
+            return Result<AuthLoginResponse>.Fail("Invalid email or password.");
+
+        if(user.Status == UserStatus.Inactive)
+            return Result<AuthLoginResponse>.Fail("User account is inactive.");
+
+        if (user.Status == UserStatus.Banned)
+            return Result<AuthLoginResponse>.Fail("User account is banned.");
+
+        if (!_passwordService.VerifyPassword(user.PasswordHash, password))
+            return Result<AuthLoginResponse>.Fail("Invalid email or password.");
+
+        string token = _tokenService.GenerateToken(user.Id, user.Email.Value, user.Role.ToString()).Value;
+
+        if(string.IsNullOrWhiteSpace(token))
+            return Result<AuthLoginResponse>.Fail("Error while generating token");
+            
+        return Result<AuthLoginResponse>.Success(new AuthLoginResponse(token));
     }
 
-    public async Task<Result<AuthResponse>> RegisterAsync(string email, string password, UserRole role, CancellationToken ct = default)
+    public async Task<Result<AuthRegisterResponse>> RegisterAsync(string email, string password, UserRole role, CancellationToken ct = default)
     {
         var validationResult = await this.validateRegisterRequest(email, password, role);
         if (!validationResult.IsSuccess)
-            return Result<AuthResponse>.Fail(validationResult.Error!);
+            return Result<AuthRegisterResponse>.Fail(validationResult.Error!);
 
         var emailVo = Email.Create(email);
 
@@ -43,7 +69,7 @@ public sealed class AuthService : IAuthService
         await _userRepository.AddAsync(user);
         await _unitOfWork.SaveChangesAsync();
 
-        return Result<AuthResponse>.Success(new AuthResponse(user.Id, user.Email.Value));
+        return Result<AuthRegisterResponse>.Success(new AuthRegisterResponse(user.Id, user.Email.Value));
     }
 
     private async Task<Result<bool>> validateRegisterRequest(string email, string password, UserRole role)
@@ -64,4 +90,5 @@ public sealed class AuthService : IAuthService
     }
 }
 
-public record AuthResponse(Guid UserId, string Email);
+public record AuthRegisterResponse(Guid userId, string email);
+public record AuthLoginResponse(string token);

@@ -36,6 +36,6 @@ public sealed class User : Entity, IAggregateRoot
         if (Status == status)
             throw new Exception($"User already in status {Enum.GetName(typeof(UserStatus), status)}");
 
-        Status = UserStatus.Active;
+        Status = status;
     }
 }

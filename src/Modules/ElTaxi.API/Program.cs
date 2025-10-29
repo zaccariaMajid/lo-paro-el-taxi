@@ -6,8 +6,10 @@ using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Interfaces;
 using ElTaxi.Infrastructure;
 using ElTaxi.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,10 @@ var connString = builder.Configuration.GetConnectionString("Postgres")
 
 builder.Services.AddDbContext<ElTaxiDbContext>(options =>
     options.UseNpgsql(connString));
+
+var key = builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key is not configured.");
+var issuer = builder.Configuration["Jwt:Issuer"] ?? throw new InvalidOperationException("JWT Issuer is not configured.");
+
 
 //Register generic repostiory
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -39,6 +45,24 @@ builder.Services.AddScoped(typeof(IVehicleRepository), typeof(VehicleRepository)
 // Add services
 builder.Services.AddSingleton<IPasswordService, PasswordService>();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidAudience = issuer,
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(key))
+        };
+    });
+
+builder.Services.AddAuthorization();
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,5 +72,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
 app.Run();

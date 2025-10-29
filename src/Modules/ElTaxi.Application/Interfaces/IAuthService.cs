@@ -10,6 +10,6 @@ namespace ElTaxi.Application.Interfaces;
 
 public interface IAuthService
 {
-    Task<Result<AuthResponse>> LoginAsync(string email, string password, CancellationToken ct = default);
-    Task<Result<AuthResponse>> RegisterAsync(string email, string password, UserRole role, CancellationToken ct = default);
+    Task<Result<AuthLoginResponse>> LoginAsync(string email, string password, CancellationToken ct = default);
+    Task<Result<AuthRegisterResponse>> RegisterAsync(string email, string password, UserRole role, CancellationToken ct = default);
 }
