@@ -9,5 +9,4 @@ namespace ElTaxi.Application.Interfaces;
 public interface ITokenService
 {
     Result<string> GenerateToken(Guid userId, string email, string role);
-    Task<bool> ValidateToken(string token);
 }

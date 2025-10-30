@@ -49,10 +49,4 @@ public class TokenService : ITokenService
 
         return Result<string>.Success(new JwtSecurityTokenHandler().WriteToken(token));
     }
-
-
-    public Task<bool> ValidateToken(string token)
-    {
-        throw new NotImplementedException();
-    }
 }
