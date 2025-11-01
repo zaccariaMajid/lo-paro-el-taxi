@@ -16,13 +16,13 @@ public sealed class DriverProfile : Entity, IAggregateRoot
     public decimal AverageRating { get; set; }
     public int TotalRides { get; set; }
     public Guid? VehicleId { get; set; }
-    public string CurrentLatitude { get; set; } = null!;
-    public string CurrentLongitude { get; set; } = null!;
+    public double CurrentLatitude { get; set; }
+    public double CurrentLongitude { get; set; }
     public DateTime LastPingAt { get; set; }
 
     private DriverProfile() { }
 
-    private DriverProfile(Guid userId, string fullName, string licenseNumber, PhoneNumber phoneNumber, string currentLatitude, string currentLongitude)
+    private DriverProfile(Guid userId, string fullName, string licenseNumber, PhoneNumber phoneNumber, double currentLatitude, double currentLongitude)
     {
         UserId = userId;
         FullName = fullName;
@@ -35,12 +35,12 @@ public sealed class DriverProfile : Entity, IAggregateRoot
         LastPingAt = DateTime.UtcNow;
     }
 
-    public static DriverProfile Create(Guid userId, string fullName, string licenseNumber, PhoneNumber phoneNumber, string currentLatitude, string currentLongitude)
+    public static DriverProfile Create(Guid userId, string fullName, string licenseNumber, PhoneNumber phoneNumber, double currentLatitude, double currentLongitude)
     {
         return new DriverProfile(userId, fullName, licenseNumber, phoneNumber, currentLatitude, currentLongitude);
     }
 
-    public void UpdateLocation(string latitude, string longitude)
+    public void UpdateLocation(double latitude, double longitude)
     {
         CurrentLatitude = latitude;
         CurrentLongitude = longitude;

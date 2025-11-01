@@ -1,39 +1,78 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using ElTaxi.Application.Interfaces;
 using ElTaxi.BuildingBlocks.Application;
+using ElTaxi.BuildingBlocks.Domain;
 using ElTaxi.Domain.Aggregates;
+using ElTaxi.Domain.Interfaces;
+using ElTaxi.Domain.ValueObjects;
 
 namespace ElTaxi.Application.Services;
 
 public class UserService : IUserInterface
 {
-    public async Task<Result<bool>> CreateDriverAsync(Guid userId, string name, string surname, string licenseNumber, string countryCode,string phoneNumber, string currentLatitude, string currentLongitude)
+    private readonly IDriverProfileRepository _driverProfileRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+
+    public UserService(IDriverProfileRepository driverProfileRepository, IUnitOfWork unitOfWork)
     {
-        if (validateCreation(userId, name, surname, licenseNumber, currentLatitude, currentLongitude).Value)
-        {
-            return Result<bool>.Fail("Fail");
-        }
-        return Result<bool>.Success(true);
+        _driverProfileRepository = driverProfileRepository;
+        _unitOfWork = unitOfWork;
     }
-    
-    private Result<bool> validateCreation(Guid? userId, string name, string surname, string licenseNumber, string currentLatitude, string currentLongitude)
+
+    public async Task<Result<DriverCreationResponse>> CreateDriverAsync(Guid userId, string name, string surname, string licenseNumber, string countryCode, string phoneNumber, double currentLatitude, double currentLongitude, CancellationToken ct = default)
     {
-        if (userId is null)
-            return Result<bool>.Fail("UserId cannot be null");
+        DriverProfile newDriver;
+        try
+        {
+            var validationResult = validateCreation(userId, name, surname, licenseNumber, currentLatitude, currentLongitude);
+            if (!validationResult.IsSuccess)
+                return Result<DriverCreationResponse>.Fail("Failed to validate Driver creation request");
+
+            var existsDriver = await _driverProfileRepository.GetByUserIdAsync(userId) is not null;
+            if (existsDriver)
+                return Result<DriverCreationResponse>.Fail("Current user has already a driver profile");
+
+            var existsLicenseNumber = await _driverProfileRepository.GetByLicenseNumberAsync(licenseNumber) is not null;
+            if (existsLicenseNumber)
+                return Result<DriverCreationResponse>.Fail("Current License Number is already registered");
+
+            var phoneNumberVo = PhoneNumber.Create(countryCode, phoneNumber);
+
+            newDriver = DriverProfile.Create(
+                userId,
+                $"{name.Trim()} {surname.Trim()}",
+                licenseNumber,
+                phoneNumberVo,
+                currentLatitude,
+                currentLongitude
+            );
+
+            await _driverProfileRepository.AddAsync(newDriver);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            return Result<DriverCreationResponse>.Fail($"Failed to create driver profile: {ex.Message}");
+        }
+        return Result<DriverCreationResponse>.Success(new DriverCreationResponse(newDriver.Id));
+    }
+
+    private Result<bool> validateCreation(Guid? userId, string name, string surname, string licenseNumber, double currentLatitude, double currentLongitude)
+    {
         if (name is null)
             return Result<bool>.Fail("Name cannot be null");
         if (surname is null)
             return Result<bool>.Fail("Surname cannot be null");
         if (licenseNumber is null)
             return Result<bool>.Fail("LicenseNumber cannot be null");
-        if (currentLatitude is null)
-            return Result<bool>.Fail("CurrentLatitude cannot be null");
-        if (currentLongitude is null)
-            return Result<bool>.Fail("CurrentLongitude cannot be null");
-        
+
         return Result<bool>.Success(true);
     }
 }
+
+public record DriverCreationResponse(Guid driverId);

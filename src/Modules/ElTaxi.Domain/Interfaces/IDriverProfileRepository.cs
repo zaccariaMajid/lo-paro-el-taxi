@@ -9,5 +9,6 @@ namespace ElTaxi.Domain.Interfaces;
 
 public interface IDriverProfileRepository : IBaseRepository<DriverProfile>
 {
-
+    Task<DriverProfile?> GetByUserIdAsync(Guid userId, CancellationToken ct = default);
+    Task<DriverProfile?> GetByLicenseNumberAsync(string licenseNumber, CancellationToken ct = default);
 }
