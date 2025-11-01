@@ -15,16 +15,16 @@ using Moq;
 namespace ElTaxi.UnitTests;
 
 [TestClass]
-public class UserServiceTest
+public class DriverProfileServiceTest
 {
     private readonly Mock<IDriverProfileRepository> _repoMock = new();
     private readonly Mock<IUnitOfWork> _unitOfWorkMock = new();
-    private UserService _userService = null!;
+    private DriverProfileService _driverProfileService = null!;
 
     [TestInitialize]
     public void Setup()
     {
-        _userService = new UserService(_repoMock.Object, _unitOfWorkMock.Object);
+        _driverProfileService = new DriverProfileService(_repoMock.Object, _unitOfWorkMock.Object);
     }
 
     [TestMethod]
@@ -48,7 +48,7 @@ public class UserServiceTest
         _repoMock.Setup(repo => repo.GetByLicenseNumberAsync(request.licenseNumber, CancellationToken.None))
            .ReturnsAsync((DriverProfile?)null);
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsTrue(result.IsSuccess);
@@ -70,7 +70,7 @@ public class UserServiceTest
         };
 
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, null!, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, null!, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);
@@ -92,7 +92,7 @@ public class UserServiceTest
         };
 
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, null!, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, null!, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);
@@ -115,7 +115,7 @@ public class UserServiceTest
         };
 
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, request.surname, null!, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, request.surname, null!, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);
@@ -149,7 +149,7 @@ public class UserServiceTest
         _repoMock.Setup(repo => repo.GetByUserIdAsync(request.userId, CancellationToken.None))
            .ReturnsAsync((DriverProfile?)existingDriver);
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);
@@ -185,7 +185,7 @@ public class UserServiceTest
         _repoMock.Setup(repo => repo.GetByLicenseNumberAsync(request.licenseNumber, CancellationToken.None))
            .ReturnsAsync((DriverProfile?)existingDriver);
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);
@@ -210,7 +210,7 @@ public class UserServiceTest
         _repoMock.Setup(repo => repo.GetByLicenseNumberAsync(request.licenseNumber, CancellationToken.None))
            .ReturnsAsync((DriverProfile?)null);
         // Act
-        var result = await _userService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
+        var result = await _driverProfileService.CreateDriverAsync(request.userId, request.name, request.surname, request.licenseNumber, request.countryCode, request.phoneNumber, request.currentLatitude, request.currentLongitude);
 
         // Assert
         Assert.IsFalse(result.IsSuccess);

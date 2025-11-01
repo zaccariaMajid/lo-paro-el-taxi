@@ -12,13 +12,13 @@ using ElTaxi.Domain.ValueObjects;
 
 namespace ElTaxi.Application.Services;
 
-public class UserService : IUserInterface
+public class DriverProfileService : IDriverProfileInterface
 {
     private readonly IDriverProfileRepository _driverProfileRepository;
     private readonly IUnitOfWork _unitOfWork;
 
 
-    public UserService(IDriverProfileRepository driverProfileRepository, IUnitOfWork unitOfWork)
+    public DriverProfileService(IDriverProfileRepository driverProfileRepository, IUnitOfWork unitOfWork)
     {
         _driverProfileRepository = driverProfileRepository;
         _unitOfWork = unitOfWork;
