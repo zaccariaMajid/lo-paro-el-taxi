@@ -7,7 +7,7 @@ using ElTaxi.BuildingBlocks.Application;
 
 namespace ElTaxi.Application.Interfaces;
 
-public interface IDriverProfileInterface
+public interface IDriverProfileService
 {
     Task<Result<DriverCreationResponse>> CreateDriverAsync(Guid userId, string name, string surname, string licenseNumber, string countryCode, string phoneNumber,double currentLatitude, double currentLongitude, CancellationToken ct = default);
 }

@@ -12,7 +12,7 @@ using ElTaxi.Domain.ValueObjects;
 
 namespace ElTaxi.Application.Services;
 
-public class DriverProfileService : IDriverProfileInterface
+public class DriverProfileService : IDriverProfileService
 {
     private readonly IDriverProfileRepository _driverProfileRepository;
     private readonly IUnitOfWork _unitOfWork;
@@ -31,7 +31,7 @@ public class DriverProfileService : IDriverProfileInterface
         {
             var validationResult = validateCreation(userId, name, surname, licenseNumber, currentLatitude, currentLongitude);
             if (!validationResult.IsSuccess)
-                return Result<DriverCreationResponse>.Fail("Failed to validate Driver creation request");
+                return Result<DriverCreationResponse>.Fail($"Failed to validate Driver creation request: {validationResult.Error}");
 
             var existsDriver = await _driverProfileRepository.GetByUserIdAsync(userId) is not null;
             if (existsDriver)

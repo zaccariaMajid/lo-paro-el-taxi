@@ -10,4 +10,5 @@ namespace ElTaxi.Domain.Interfaces;
 public interface IRiderProfileRepository : IBaseRepository<RiderProfile>
 {
 
+    Task<RiderProfile?> GetByUserIdAsync(Guid userId, CancellationToken ct = default);
 }
