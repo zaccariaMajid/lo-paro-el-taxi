@@ -12,11 +12,11 @@ public sealed class Ride : Entity, IAggregateRoot
     public Guid RiderId { get; set; }
     public Guid DriverId { get; set; }
     public Address PickUpAddress { get; set; } = null!;
-    public string PickupLatitude { get; set; } = null!;
-    public string PickupLongitude { get; set; } = null!;
+    public double PickupLatitude { get; set; }
+    public double PickupLongitude { get; set; }
     public Address DropOffAddress { get; set; } = null!;
-    public string DropOffLatitude { get; set; } = null!;
-    public string DropOffLongitude { get; set; } = null!;
+    public double DropOffLatitude { get; set; }
+    public double DropOffLongitude { get; set; }
     public DateTime RequestedAt { get; set; }
     public DateTime? StartedAt { get; set; }
     public DateTime? CompletedAt { get; set; }
@@ -30,7 +30,7 @@ public sealed class Ride : Entity, IAggregateRoot
     public int? DriverRating { get; set; }
     public int? RiderRating { get; set; }
     private Ride() { }
-    private Ride(Guid riderId, Guid driverId, Address pickUpAddress, string pickupLatitude, string pickupLongitude, Address dropOffAddress, string dropOffLatitude, string dropOffLongitude, decimal distanceInKm, decimal estimatedDurationInMinutes, decimal estimatedPrice)
+    private Ride(Guid riderId, Guid driverId, Address pickUpAddress, double pickupLatitude, double pickupLongitude, Address dropOffAddress, double dropOffLatitude, double dropOffLongitude, decimal distanceInKm, decimal estimatedDurationInMinutes, decimal estimatedPrice)
     {
         RiderId = riderId;
         DriverId = driverId;
@@ -50,11 +50,11 @@ public sealed class Ride : Entity, IAggregateRoot
         Guid riderId,
         Guid driverId,
         Address pickUpAddress,
-        string pickupLatitude,
-        string pickupLongitude,
+        double pickupLatitude,
+        double pickupLongitude,
         Address dropOffAddress,
-        string dropOffLatitude,
-        string dropOffLongitude,
+        double dropOffLatitude,
+        double dropOffLongitude,
         decimal distanceInKm,
         decimal estimatedDurationInMinutes,
         decimal estimatedPrice)

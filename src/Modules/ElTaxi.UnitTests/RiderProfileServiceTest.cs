@@ -142,7 +142,7 @@ public class RiderProfileServiceTest
     }
 
     [TestMethod]
-    public async Task ShouldFailToCreateRiderProfileIfhoneNumberCreationThrowsExceptio_CreateRiderAsync()
+    public async Task ShouldFailToCreateRiderProfileIfhoneNumberCreationThrowsException_CreateRiderAsync()
     {
         // Arrange
         var request = new
